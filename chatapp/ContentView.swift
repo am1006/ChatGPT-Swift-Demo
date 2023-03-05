@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Alamofire
 
 struct ChatView: View {
   @State private var message = ""
@@ -47,14 +46,13 @@ struct ChatView: View {
 
     isThinking.toggle()
     message = ""
-    
+
     // TODO: Set "system" messages to fine tune the bot
     //        let staticResponse = ChatMessage(role: .assistant, content: "Cool")
     //        chatHistory.append(staticResponse)
     let request = prepareRequest(message: newChatMessage)
 
     let (data, response) = try await URLSession.shared.data(for: request)
-
 
     guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
       debugPrint("Request Failure Error: ")
