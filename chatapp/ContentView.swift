@@ -125,6 +125,7 @@ struct ChatView: View {
         )
         .cornerRadius(999)
         .padding(.horizontal)
+        .padding(.vertical)
       }
       .navigationTitle(botname)
     }
