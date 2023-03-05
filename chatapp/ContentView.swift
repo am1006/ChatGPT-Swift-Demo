@@ -48,41 +48,6 @@ struct ChatView: View {
     isThinking.toggle()
     message = ""
     
-//      let params = [
-//        "role": "user",
-//        "content": newChatMessage.content
-//      ]
-//
-//      let headers: HTTPHeaders = [
-//          "Accept": "*/*",
-//          "Accept-encoding": "gzip, deflate, br",
-//          "content-type": "text/plain;charset=UTF-8",
-//          "User-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
-//      ]
-//
-//      let streamTask = AF.streamRequest(
-//        chatGPTURL,
-//        method: .post,
-//        parameters: params,
-//        headers: headers,
-//        automaticallyCancelOnStreamError: true).validate().streamTask()
-//
-//      for await data in streamTask.streamingStrings() {
-//          var completionMessage = (data.value != nil) ? data.value : ""
-//          if completionMessage.hasPrefix("\n\n") {
-//               completionMessage.removeFirst(2)
-//             }
-//        debugPrint("After: \(completionMessage)")
-//
-//          let newChatMessage = ChatMessage(role: .assistant, content: completionMessage)
-//          debugPrint("After: \(completionMessage)")
-//          chatHistory.append(newChatMessage)
-//          debugPrint(data.value)
-//
-//          isThinking.toggle()
-//      }
-
-
     // TODO: Set "system" messages to fine tune the bot
     //        let staticResponse = ChatMessage(role: .assistant, content: "Cool")
     //        chatHistory.append(staticResponse)
