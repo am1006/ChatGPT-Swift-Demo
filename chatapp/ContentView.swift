@@ -67,9 +67,8 @@ struct ChatView: View {
 
   }
 
-  private let chatGPTURL = "https://api.openai.com/v1/chat/completions"
+  private let chatGPTURL = "https://chatgpt-api.shn.hk/v1/"
   private let openAIModel = "gpt-3.5-turbo"
-  private let openAIApiKey = ""
 
   private func prepareRequest(message: ChatMessage) -> URLRequest {
 
@@ -82,8 +81,6 @@ struct ChatView: View {
     var request = URLRequest(url: URL(string: chatGPTURL)!)
     request.httpMethod = "POST"
     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-
-    request.addValue("Bearer \(openAIApiKey)", forHTTPHeaderField: "Authorization")
 
     let encoder = JSONEncoder()
     if let encoded = try? encoder.encode(parameters) {
